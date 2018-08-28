@@ -6,7 +6,14 @@ export default {
   // 1) Web Request is made to server
   // 2) _when_ browser gets response, _then_ call the callback
   // 3) The return value of that _then_ callback is passed to the next then (outside this function)
-  getSectors(searchTerm = '') {
+  getSectors() {
+
+    return fetch('https://www.alphavantage.co/query?function=SECTOR&apikey=XPMJIH1MNBTH8FE0')
+      .then(response => {
+        return response.json();
+      });
+  },
+  getStock(symbol, period) {
 
     // url:
     // 1) protocol (https://)
@@ -19,9 +26,8 @@ export default {
     //    ?APIKEY=abc123&search=${encodeURIComponent(name)}
 
     // if(searchTerm === 'jar') return Promise.reject(new Error('meesa think that bad search'));
-    searchTerm;
-    return fetch(`https://www.alphavantage.co/query?function=SECTOR&apikey=XPMJIH1MNBTH8FE0`)
-    // return fetch(`https://swapi.co/api/people?search=${encodeURIComponent(searchTerm)}`)
+    return fetch(`https://www.alphavantage.co/query?function=${period}&symbol=${symbol}&apikey=XPMJIH1MNBTH8FE0`)
+      // return fetch(`https://swapi.co/api/people?search=${encodeURIComponent(searchTerm)}`)
       /* deserialize the data to real JavaScript object! */
 
       .then(response => {
