@@ -103,6 +103,8 @@ export default {
           this.dateArr.push(this.date);
           this.timeNameArr.push(this.timeName);
           this.periodNameArr.push(this.periodName);
+
+          this.value = null;
           
           this.loading = false;
         })

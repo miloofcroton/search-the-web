@@ -27,8 +27,9 @@ export default {
 
     // if(searchTerm === 'jar') return Promise.reject(new Error('meesa think that bad search'));
     return fetch(`https://www.alphavantage.co/query?function=${period}&symbol=${symbol}&apikey=XPMJIH1MNBTH8FE0`)
-      // return fetch(`https://swapi.co/api/people?search=${encodeURIComponent(searchTerm)}`)
-      /* deserialize the data to real JavaScript object! */
+    
+    // return fetch(`https://swapi.co/api/people?search=${encodeURIComponent(searchTerm)}`)
+    /* deserialize the data to real JavaScript object! */
 
       .then(response => {
         return response.json();
